@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Gre from "./gre/page";
 import Cat from "./cat/page";
 import Gate from "./gate/page";
+import Ielts from "./ielts/page";
 
 
 function Page() {
@@ -19,7 +20,7 @@ function Page() {
               {pathname === "/exams/gate" && <Gate/>}
               {pathname === "/exams/gre" && <Gre/>}
               {pathname === "/exams/cat" && <Cat/>}
-              {pathname === "/exams/ielts" && <Request />}
+              {pathname === "/exams/ielts" && <Ielts/>}
             </div>
           </div>
         </div>

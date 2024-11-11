@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-function page() {
+function Questions() {
   const [question, setQuestion] = useState("");
   const [answer , setAnswer] = useState("")
   const submitQuestion = async () => {
@@ -150,4 +150,4 @@ function page() {
   );
 }
 
-export default page;
+export default Questions;

@@ -1,7 +1,7 @@
 "use client"
 import React,{useState,useEffect} from 'react'
 
-function page() {
+function Placements() {
   const [driveData, setDriveData] = useState([]);
     
   useEffect(() => {
@@ -39,4 +39,4 @@ function page() {
   )
 }
 
-export default page
+export default Placements

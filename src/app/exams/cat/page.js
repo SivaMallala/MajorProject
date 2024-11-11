@@ -68,7 +68,7 @@ export default function Cat() {
           </li>
         </ul>
         <p>
-          Above all, this exam is all about evaluating a candidate's ability to
+          Above all, this exam is all about evaluating a candidates ability to
           handle the pressure under given circumstances; along with that, it
           also demonstrates their time management skills. Each candidate is
           given only 40 minutes to solve a particular section, with a timer
