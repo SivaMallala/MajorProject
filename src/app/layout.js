@@ -40,7 +40,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} flex bg-black antialiased`}
         >
         <Sidenav/>
+        <div className=" mt-5 ml-[13%] w-[100%]">
         {children}
+        </div>
       </body>
     </html>
         </NextAuthProvider>

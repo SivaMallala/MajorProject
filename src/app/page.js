@@ -1,7 +1,6 @@
 "use client"
 import React from "react";
-import { signIn, useSession } from "next-auth/react";
-import Head from "next/head";
+import { signIn } from "next-auth/react";
 export default function Home() {
   return (
     <>

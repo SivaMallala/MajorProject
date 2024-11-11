@@ -12,24 +12,18 @@ function page() {
   const [answer , setAnswer] = useState("")
   const submitQuestion = async () => {
     try {
-      if(!question){
-        alert("Enter Question")
-      }else{
-        const response = await fetch("/api/questions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ question }),
-        });
-  
-        if (!response.ok) {
-          throw new Error("Request failed");
-        }
-        setQuestion("");
-        fetchQuestions();
+      const response = await fetch("/api/questions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ question }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
       }
-     
+      setQuestion("");
     } catch (error) {
       console.error("Error submitting request:", error);
     }

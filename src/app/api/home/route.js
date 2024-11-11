@@ -49,7 +49,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
       await startDb();
       const profile = await Profile.findOne({ email: userEmail });
       if (!profile) {
-        return NextResponse.json({ message: "Profile not found" }, { status: 404 });
+        return NextResponse.json([], { status: 200 });
       }
       return NextResponse.json(profile, { status: 200 });
     } catch (error) {

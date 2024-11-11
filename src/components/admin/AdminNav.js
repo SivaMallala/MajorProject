@@ -8,30 +8,30 @@ import { signOut } from "next-auth/react";
 
 
 
-const Sidenav = () => {
+const AdminNav = () => {
   const pathname = usePathname();
 
   const navLink = [
     { name: "Home", 
-      href: "/home", 
+      href: "/admin/home", 
       },
     {
-      name: "Exams",
-      href: "/exams/gate",
-      parent: "/exams",
+      name: "Users",
+      href: "/admin/users",
+      parent: "/admin/users",
      
     },
     {
       name: "Placements",
-      href: "/placements",
-      parent: "/placements",
+      href: "/admin/placements",
+      parent: "/admin/placements",
 
    
     },
     {
       name: "Q & A",
-      href: "/questions",
-      parent: "/questions",
+      href: "/admin/questions",
+      parent: "/admin/questions",
       
     },
   ];
@@ -65,7 +65,7 @@ const Sidenav = () => {
 
       <div className="border-t border-neutral-500/opacity-60">
         <button
-          onClick={() => signOut({ callbackUrl: "/" })}
+          onClick={() => signOut({ callbackUrl: "/admin" })}
           className="rounded-[5px] my-4 text-neutral-500 text-lg font-normal flex  items-center"
         >
           Logout
@@ -76,4 +76,4 @@ const Sidenav = () => {
   );
 };
 
-export default Sidenav;
+export default AdminNav;
