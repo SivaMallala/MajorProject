@@ -21,7 +21,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
     if (existingProfile) {
       
       existingProfile.name = fullName;
-      existingProfile. rollno =  rollNumber;
+      existingProfile.number = rollNumber;
       existingProfile.department= department;
       existingProfile.year = year;
   
