@@ -41,6 +41,9 @@ export const authOptions = {
               Profile.create({
                 email: profile.email,
                 name: profile.name,
+                number: "--",
+                year: "--",
+                department: "--",
               }),
             ]);
 
