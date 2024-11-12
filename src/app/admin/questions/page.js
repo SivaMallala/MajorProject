@@ -110,7 +110,7 @@ function QuestionsAdmin() {
   ) : (
     showquestion.slice().reverse().map((question, index) => (
       <Accordion className="mt-4" key={index} type="single" collapsible>
-        <p>Asked by: {question.name}, Roll Number: {question.rollno}</p>
+        <p>Asked by: {question.name}, Roll Number: {question.number}</p>
         <AccordionItem value="item-1">
           <AccordionTrigger>{question.question}</AccordionTrigger>
           <AccordionContent>

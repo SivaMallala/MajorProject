@@ -73,12 +73,12 @@ export async function GET() {
       .map((question) => question.solvedby);
     const emails = [...new Set([...askedbyArray, ...solvedbyArray])];
 
-    const profiles = await Profile.find({ email: { $in: emails } }, 'email name rollno role');
+    const profiles = await Profile.find({ email: { $in: emails } }, 'email name number role');
 
     // Create a mapping of email to profile data for easy lookup
     const profileMap = {};
     profiles.forEach((profile) => {
-      profileMap[profile.email] = { name: profile.name, rollno: profile.number, role: profile.role };
+      profileMap[profile.email] = { name: profile.name, number: profile.number, role: profile.role };
     });
 
     // Combine profile data into each question

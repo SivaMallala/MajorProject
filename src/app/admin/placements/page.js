@@ -111,7 +111,7 @@ function AdminPlacements() {
   return (
     <main className="flex flex-col justify-center items-center gap-10 mb-2">
       
-      {role ==='admin' ?  <div className="bg-white text-black rounded-[20px] w-fit p-4 border mt-10">
+      {role ==='admin' || 'teacher' ?  <div className="bg-white text-black rounded-[20px] w-fit p-4 border mt-10">
         <div className="grid w-full grid-cols-2 max-w-sm items-center gap-5">
           <input
             placeholder="Company Name"
