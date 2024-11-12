@@ -166,7 +166,7 @@ async function fetchrole() {
 
       setProfileData({
         name: data.name,
-        rollNumber: data.rollno,
+        rollNumber: data.number,
         email: data.email,
         department: data.department,
         year: data.year,

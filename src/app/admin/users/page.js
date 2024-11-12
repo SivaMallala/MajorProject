@@ -12,6 +12,12 @@ import {
 function Users() {
   const [profileData, setprofileData] = useState([]);
   const [role,setRole] = useState('')
+  const [email ,setEmail] = useState("")
+  const [fullName ,setFullName] = useState("")
+  const [number ,setNumber] = useState("")
+  const [department ,setDepartment] = useState("")
+  const [year ,setYear] = useState("")
+  const [roole ,setroole] = useState("")
 
   useEffect(() => {
     fetchData();
@@ -51,8 +57,102 @@ function Users() {
       console.error("Error fetching data:", error);
     }
   }
+
+  const adduser = async () => {
+    const Adduser = {email, fullName, number, department, year,roole };
+
+    try {
+      const response = await fetch("/api/role", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Adduser),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+      setFullName("");
+      setNumber("");
+      setDepartment("");
+      setYear("");
+      setEmail("")
+      setroole("")
+    } catch (error) {
+      console.error("Error submitting request:", error);
+    }
+  }
   return (
     <main className="flex text-white flex-wrap justify-center items-center gap-10 m-5">
+      <Dialog>
+            <DialogTrigger className="text-white bg-black text-[12px] font-bold h-[40px] w-auto py-2 px-7 rounded">
+              Add User
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Enter Profile Details</DialogTitle>
+
+                <div className="grid w-full max-w-sm items-center gap-1.5">
+                <input
+                    placeholder="Email"
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="border rounded w-68 py-3.5 px-4 text-gray-800 leading-tight"
+                  />
+                  <input
+                    placeholder="Full Name"
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    className="border rounded w-68 py-3.5 px-4 text-gray-800 leading-tight"
+                  />
+                  <input
+                    placeholder="Roll Number"
+                    type="text"
+                    value={number}
+                    onChange={(e) => setNumber(e.target.value)}
+                    className="border rounded w-68 py-3.5 px-4 text-gray-800 leading-tight"
+                  />
+                  <input
+                    placeholder="Department"
+                    type="text"
+                    value={department}
+                    onChange={(e) => setDepartment(e.target.value)}
+                    className="border rounded w-68 py-3.5 px-4 text-gray-800 leading-tight"
+                  />
+                  <input
+                    placeholder="Acadamic Year"
+                    type="text"
+                    value={year}
+                    onChange={(e) => setYear(e.target.value)}
+                    className="border rounded w-68 py-3.5 px-4 text-gray-800 leading-tight"
+                  />
+                  <select
+                  className="lg:h-[38px] h-[15px] w-[130px] lg:w-[230px] text-[8px]  text-gray-600 lg:text-xs  outline outline-[0.2px] opacity-50 rounded"
+                  value={roole}
+                  onChange={(e) => setroole(e.target.value)}
+                  
+                >
+                  <option className="text-[8px] lg:text-xs"  value="someOption">Select the Role</option>
+                  <option className="text-[8px] lg:text-xs">student</option>
+                  <option className="text-[8px] lg:text-xs">teacher</option>
+                  <option className="text-[8px] lg:text-xs">admin</option>
+                  
+                </select>
+                </div>
+                <div className="flex my-2 justify-end">
+                  <button
+                    onClick={adduser}
+                    className="text-white bg-black text-[12px] font-bold h-[40px] w-auto py-2 px-7 rounded"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
       {profileData.map((profile, index) => (
         <div className="bg-white text-black rounded-lg flex flex-col justify-center items-center p-3 border-emerald-400 border-2 shadow-gray-400 shadow-lg" key={index}>
           <h1 className="font-bold text-2xl text-emerald-700">{profile.name}</h1>

@@ -78,14 +78,14 @@ export async function GET() {
     // Create a mapping of email to profile data for easy lookup
     const profileMap = {};
     profiles.forEach((profile) => {
-      profileMap[profile.email] = { name: profile.name, rollno: profile.rollno, role: profile.role };
+      profileMap[profile.email] = { name: profile.name, rollno: profile.number, role: profile.role };
     });
 
     // Combine profile data into each question
     const combinedData = quest.map((question) => ({
       ...question.toObject(),
       name: profileMap[question.askedby]?.name || null,
-      rollno: profileMap[question.askedby]?.rollno || null,
+      number: profileMap[question.askedby]?.number || null,
       role: profileMap[question.askedby]?.role || null,
       answeredby: question.solvedby ? profileMap[question.solvedby]?.name || null : null,
     }));
