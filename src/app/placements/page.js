@@ -170,7 +170,7 @@ function Placements() {
     driveData.map((drive, index) => (
       <div key={index} className="max-w-sm w-fit bg-white rounded-lg shadow-md p-6 text-center">
         <a target="_blank" href={drive.companysite} rel="noopener noreferrer">
-          <h1 className="text-2xl font-semibold text-[#00c7ff] mb-4">{drive.companyname}</h1>
+          <h1 className="text-2xl hover:underline font-semibold text-[#00c7ff] mb-4">{drive.companyname}</h1>
         </a>
         <p className="text-gray-700 mb-2">
           <span className="font-semibold">Eligibility Criteria:</span> {drive.eligibulity}

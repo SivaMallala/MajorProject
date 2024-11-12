@@ -158,7 +158,7 @@ Answer questions connected to Part 2.
           <tbody>
             <tr className="text-gray-300">
               <td className="px-6 py-4 border-b border-gray-700">
-             <a className="flex gap-2" target="__blank" href="https://ieltsidpindia.com/prepare/ielts-exam-sample-papers?gad_source=1&gclid=cj0kcqiarby5bhcdarisaijvjisxgmh31ul7sjvtmuqsw5-esazd8p0rmnvnpecty2trwgvpizjyb7uaar72ealw_wcb"> <FaLink size={20}/> Previous Year Papers</a>
+             <a className="flex gap-2" target="__blank" href="https://drive.google.com/drive/folders/1-8jqG4rH2g-fbAKRWgfBp5K7RQyRcmLs"> <FaLink size={20}/> Previous Year Papers</a>
               </td>
               <td className="px-6 py-4 border-b flex  gap-3 border-gray-700">
                 <a href="https://youtu.be/q-R7LucInKE?si=VmsmPADhLNzsZm4i" target="__blank"><FaYoutube size={25}/></a>

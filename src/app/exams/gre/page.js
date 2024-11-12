@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { FaYoutube,FaLink } from "react-icons/fa";
 
 function Gre() {
   return (
@@ -408,6 +409,36 @@ function Gre() {
           </TabsContent>
         </Tabs>
       </div>
+      <div className="flex m-6 flex-col gap-4">
+        <h1 className="text-2xl font-bold">
+          Also Check
+        </h1>
+      <table className="min-w-full border-collapse border border-gray-600">
+          <thead>
+            <tr className="bg-gray-800 text-white">
+              <th className="px-6 py-3 border-b border-gray-700 text-left font-semibold">
+              GRE Previous Year Papers With Solutions
+              </th>
+              <th className="px-6 py-3 border-b border-gray-700 font-semibold">
+                Youtube
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="text-gray-300">
+              <td className="px-6 py-4 border-b border-gray-700">
+             <a className="flex gap-2" target="__blank" href="https://drive.google.com/drive/folders/1O6fIYD9sovLLXKQ6ms-wvAOTnT_Nz8jB"> <FaLink size={20}/> Previous Year Papers</a>
+              </td>
+              <td className="px-6 py-4 border-b flex  gap-3 border-gray-700">
+                <a href="https://youtu.be/q-R7LucInKE?si=VmsmPADhLNzsZm4i" target="__blank"><FaYoutube size={25}/></a>
+                <a href="https://youtu.be/HDhlXPBXwFA?si=4AFKQi4Bh5IELxst" target="__blank"><FaYoutube size={25}/></a>
+                <a href="https://www.youtube.com/playlist?list=PLfSUFKdFlttn1MWrG5Q0-a9Cbm9y3uulX" target="__blank"><FaYoutube size={25}/></a>
+                <a href="https://youtu.be/huCAt6KdHMY?si=9aOe49nyQKukcJR7" target="__blank"><FaYoutube size={25}/></a>
+              </td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
     </div>
   );
 }
