@@ -6,6 +6,7 @@ const drive = new mongoose.Schema({
   eligibulity:{type:String },
   syllabus:{type:String},
   date:{type:Date},
+  description:{type:String},
 },
 {timestamps:true});
 

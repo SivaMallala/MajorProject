@@ -23,18 +23,37 @@ function Placements() {
   return (
     <main className='flex flex-col justify-center items-center gap-10 m-6'>
 
-    <div className="flex flex-wrap w-[80%] gap-4">
-        {driveData.map((drive, index) => (
-          <div key={index} className="max-w-sm w-fit bg-white rounded-lg shadow-md p-6 text-center">
-           <a target='__blank' href={drive.companysite}><h1 className="text-2xl font-semibold text-[#00c7ff] mb-4">{drive.companyname}</h1></a> 
-            <p className="text-gray-700 mb-2"><span className="font-semibold">Eligibility Criteria:</span> {drive.eligibulity}</p>
-            <p className="text-gray-700 mb-2"><span className="font-semibold">Syllabus:</span> {drive.syllabus}</p>
-            <p className="text-gray-700">
-  <span className="font-semibold">Drive Date:</span> {new Date(drive.date).toLocaleDateString()}
-</p>
-          </div>
-        ))}
+<div className="flex flex-wrap w-[80%] gap-4">
+  {driveData === null ? (
+    <div className="w-full text-center text-xl font-semibold text-gray-500 mt-10">
+      Loading...
+    </div>
+  ) : driveData.length > 0 ? (
+    driveData.map((drive, index) => (
+      <div key={index} className="max-w-sm w-fit bg-white rounded-lg shadow-md p-6 text-center">
+        <a target="_blank" href={drive.companysite} rel="noopener noreferrer">
+          <h1 className="text-2xl font-semibold text-[#00c7ff] mb-4">{drive.companyname}</h1>
+        </a>
+        <p className="text-gray-700 mb-2">
+          <span className="font-semibold">Eligibility Criteria:</span> {drive.eligibulity}
+        </p>
+        <p className="text-gray-700 mb-2">
+          <span className="font-semibold">Syllabus:</span> {drive.syllabus}
+        </p>
+        <p className="text-gray-700">
+          <span className="font-semibold">Drive Date:</span> {new Date(drive.date).toLocaleDateString()}
+        </p>
+        <p className="text-gray-700">
+          <span className="font-semibold">Description: </span> {drive.description}
+        </p>
       </div>
+    ))
+  ) : (
+    <div className="w-full text-center text-xl font-semibold text-gray-500 mt-10">
+      No placements for now...
+    </div>
+  )}
+</div>
         </main>
   )
 }

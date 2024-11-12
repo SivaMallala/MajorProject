@@ -11,7 +11,7 @@ export default function PoliciesLayout({ children }) {
 
   return (
     <>
-      <div className="flex w-full h-[40px] justify-center relative">
+      <div className="flex w-full h-[40px] justify-center z-10 relative">
         <div className="flex w-[80%] fixed bg-gray-800 rounded-full p-5 items-center text-white mt-4">
           {[
             { name: "Gate", path: "/exams/gate" },

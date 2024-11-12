@@ -14,6 +14,30 @@ import {
 
 function Gate() {
     const gatesubjects =[
+        {name:"Computer Science & Information Technology",
+            code:"CS",
+            yt:"https://www.youtube.com/playlist?list=PLynLXReWAxdElXlBKOfqenSJw3Sh_77de",
+            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_CS_2025_Syllabus.pdf"   
+        },
+        {name:"Civil Engineering",
+            code:"CE",
+            yt:"https://www.youtube.com/playlist?list=PLr3aZ3Y9l4i2L2dtLlhIXdP-QKiQQuoRU",
+            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_CE_2025_Syllabus.pdf"   
+        },
+        {name:"Electronics & Communication Engineering",
+            code:"EC",
+            yt:"https://www.youtube.com/playlist?list=PLynLXReWAxdEod_E-seglXdfOhwARXvNB",
+            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_EC_2025_Syllabus.pdf"   
+        },{name:"Electrical Engineering",
+            code:"EE",
+            yt:"https://www.youtube.com/playlist?list=PLgzsL8klq6DLThHYAC56HdHqjtnZ8IJLS",
+            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_EE_2025_Syllabus.pdf"   
+        },
+        {name:"Mechanical Engineering",
+            code:"ME",
+            yt:"https://www.youtube.com/playlist?list=PLynLXReWAxdFY65ZwPQUBYrki4q91m8vG",
+            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_ME_2025_Syllabus.pdf"   
+        },
         {name:"Aerospace Engineering",
          code:"AE",
          link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_AE_2025_Syllabus.pdf",
@@ -35,18 +59,10 @@ function Gate() {
             code:"BT",
             yt:"https://www.youtube.com/playlist?list=PLXXeSg8J7KGTnjCUeqNU7GsJPhFwsUcS3",
             link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_BT_2025_Syllabus.pdf"   
-        },{name:"Civil Engineering",
-            code:"CE",
-            yt:"https://www.youtube.com/playlist?list=PLr3aZ3Y9l4i2L2dtLlhIXdP-QKiQQuoRU",
-            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_CE_2025_Syllabus.pdf"   
         },{name:"Chemical Engineering",
             code:"CH",
             yt:"https://www.youtube.com/playlist?list=PLZJ1iScV7qFX8a39GBGCHSADVJlk2rwPu",
             link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_CH_2025_Syllabus.pdf"   
-        },{name:"Computer Science & Information Technology",
-            code:"CS",
-            yt:"https://www.youtube.com/playlist?list=PLynLXReWAxdElXlBKOfqenSJw3Sh_77de",
-            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_CS_2025_Syllabus.pdf"   
         },{name:"Chemistry",
             yt:"https://www.youtube.com/playlist?list=PL8bZZHwl4U15RK2ZiSZlBDXnq6VCUmhE9",
             code:"CY",
@@ -55,14 +71,6 @@ function Gate() {
             code:"DA",
             yt:"https://www.youtube.com/live/VBl3vossXI4?si=6m9biUlfCFKzmDUB",
             link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_DA_2025_Syllabus.pdf"   
-        },{name:"Electronics & Communication Engineering",
-            code:"EC",
-            yt:"https://www.youtube.com/playlist?list=PLynLXReWAxdEod_E-seglXdfOhwARXvNB",
-            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_EC_2025_Syllabus.pdf"   
-        },{name:"Electrical Engineering",
-            code:"EE",
-            yt:"https://www.youtube.com/playlist?list=PLgzsL8klq6DLThHYAC56HdHqjtnZ8IJLS",
-            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_EE_2025_Syllabus.pdf"   
         },{name:"Environmental Science & Engineering",
             code:"ES",
             yt:"https://www.youtube.com/playlist?list=PLLtWVVE-awYhF-_oZtvpJcOVyCT9BSIXy",
@@ -88,10 +96,6 @@ function Gate() {
             code:"MA",
             yt:"https://www.youtube.com/playlist?list=PLB6MUoMXv9xcGOPDraWI707O7Zj5qVrDW",
             link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_MA_2025_Syllabus.pdf"   
-        },{name:"Mechanical Engineering",
-            code:"ME",
-            yt:"https://www.youtube.com/playlist?list=PLynLXReWAxdFY65ZwPQUBYrki4q91m8vG",
-            link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_ME_2025_Syllabus.pdf"   
         },{name:"Mining Engineering",
             code:"MN",
             yt:"https://www.youtube.com/playlist?list=PLY00heSm1KTChCnmRsC2RIxYgvwF95Cap",
@@ -138,7 +142,7 @@ function Gate() {
             link:"https://gate2025.iitr.ac.in/doc/2025/GATE%20_XL_2025_Syllabus.pdf"   
         },
     ]
-    const itemsPerPage = 8;
+    const itemsPerPage = 10;
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = Math.ceil(gatesubjects.length / itemsPerPage);
 
@@ -148,10 +152,8 @@ function Gate() {
 
     const displayedSubjects = gatesubjects.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
   return (
-    <div className="text-white w-[80%] m-10 flex flex-col items-center justify-center">
-           
-                <h1 className="mb-5">Syllabus</h1>
-                <Table>
+    <div className="text-white w-[90%] m-10 flex flex-col items-center justify-center">
+                <Table className="">
                     <TableHeader>
                         <TableRow>
                             <TableHead className="text-left">GATE Test Paper</TableHead>
@@ -166,7 +168,7 @@ function Gate() {
                                 <TableCell><a href={subject.link} target="_blank" rel="noopener noreferrer">{subject.name}</a></TableCell>
                                 <TableCell><a href={subject.link} target="_blank" rel="noopener noreferrer">{subject.code}</a></TableCell>
                                 <TableCell><a href={subject.yt} target="_blank" rel="noopener noreferrer"><FaYoutube size={25}/></a></TableCell>
-                                <TableCell><a href="https://gate2025.iitr.ac.in/download.html" target="_blank" rel="noopener noreferrer">  <FaLink size={15}/></a></TableCell>
+                                <TableCell><a href="https://drive.google.com/drive/folders/1ts8SpCKculCTiGrDXtmObY0J5FJ7MaLH" target="_blank" rel="noopener noreferrer">  <FaLink size={15}/></a></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

@@ -202,7 +202,7 @@ export default function Cat() {
           <tbody>
             <tr className="text-gray-300">
               <td className="px-6 py-4 border-b border-gray-700">
-             <a className="flex gap-2" target="__blank" href="https://online.2iim.com/CAT-question-paper/"> <FaLink size={20}/> Previous Year Papers</a>
+             <a className="flex gap-2" target="__blank" href="https://drive.google.com/drive/folders/1VwznViPyS_aI24dbqwpK_15GExnBui-F"> <FaLink size={20}/> Previous Year Papers</a>
               </td>
               <td className="px-6 py-4 border-b flex  gap-3 border-gray-700">
                 <a href="https://youtu.be/lHF63CUoKT8?si=C0FrTglxwjmRpD7R" target="__blank"><FaYoutube size={25}/></a>

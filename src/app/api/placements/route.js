@@ -11,7 +11,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
     if (!session) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }  
-    const { companyName,companysite,eligibilityCriteria,Syllabus,driveDate } = await request.json();
+    const { companyName,companysite,eligibilityCriteria,Syllabus,driveDate,description } = await request.json();
     await startDb();
     const newdrive = await Drive.create({
         companyname:companyName,
@@ -19,6 +19,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
         eligibulity:eligibilityCriteria,
         syllabus:Syllabus,
         date:driveDate,
+        description:description
       });
   
       return NextResponse.json({ message: " successfully" }, { status: 200 });

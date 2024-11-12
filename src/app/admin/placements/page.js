@@ -23,30 +23,31 @@ function AdminPlacements() {
   }
 
 
-
-  const [driveData, setDriveData] = useState([]);
+  const [driveData, setDriveData] = useState(null);
 
   useEffect(() => {
     fetchData();
   }, []);
+  
   async function fetchData() {
     try {
       const res = await fetch("/api/placements");
-
       if (!res.ok) throw new Error("Failed to fetch data");
-
       const data = await res.json();
-      setDriveData(data);
+      setDriveData(data.length ? data : []); // Ensure it's set to an empty array if no data
     } catch (error) {
       console.error("Error fetching data:", error);
+      setDriveData([]); // Set to an empty array if there's an error
     }
   }
+  
 
   const [companyName, setcompanyName] = useState("");
   const [companysite, setcompanysite] = useState("");
   const [eligibilityCriteria, setEligibilitycriteria] = useState("");
   const [Syllabus, setSyllabus] = useState("");
   const [driveDate, setDrivedate] = useState("");
+  const [description , setDescription] = useState("")
 
   const removeDrive = async (id) => {
     try {
@@ -73,7 +74,7 @@ function AdminPlacements() {
 
   const postDrive = async () => {
     if (!companyName || !eligibilityCriteria || !Syllabus || !driveDate) {
-      alert("fill all details");
+      alert("Fill all details");
     } else {
       const driveDetails = {
         companyName,
@@ -81,6 +82,7 @@ function AdminPlacements() {
         eligibilityCriteria,
         Syllabus,
         driveDate,
+        description
       };
       try {
         const response = await fetch("/api/placements", {
@@ -99,6 +101,7 @@ function AdminPlacements() {
         setEligibilitycriteria("");
         setSyllabus("");
         setDrivedate("");
+        setDescription("")
         fetchData();
       } catch (error) {
         console.error("Error submitting request:", error);
@@ -118,10 +121,17 @@ function AdminPlacements() {
             className="border rounded w-68 py-3.5 px-4 text-gray-800 leading-tight"
           />
           <input
-            placeholder="Company Web Site"
+            placeholder="Company Website"
             type="text"
             value={companysite}
             onChange={(e) => setcompanysite(e.target.value)}
+            className="border rounded w-68 py-3.5 px-4 text-gray-800 leading-tight"
+          />
+          <input
+            placeholder="Description"
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             className="border rounded w-68 py-3.5 px-4 text-gray-800 leading-tight"
           />
           <input
@@ -156,37 +166,46 @@ function AdminPlacements() {
         </div>
       </div> : null}
       <div className="flex flex-wrap w-[80%] gap-4">
-        {driveData.map((drive, index) => (
-          <div
-            key={index}
-            className="max-w-sm w-fit bg-white rounded-lg shadow-md p-6 text-center"
+  {driveData === null ? (
+    <div className="w-full text-center text-xl font-semibold text-gray-500 mt-10">
+      Loading...
+    </div>
+  ) : driveData.length > 0 ? (
+    driveData.map((drive, index) => (
+      <div key={index} className="max-w-sm w-fit bg-white rounded-lg shadow-md p-6 text-center">
+        <a target="_blank" href={drive.companysite} rel="noopener noreferrer">
+          <h1 className="text-2xl font-semibold text-[#00c7ff] mb-4">{drive.companyname}</h1>
+        </a>
+        <p className="text-gray-700 mb-2">
+          <span className="font-semibold">Eligibility Criteria:</span> {drive.eligibulity}
+        </p>
+        <p className="text-gray-700 mb-2">
+          <span className="font-semibold">Syllabus:</span> {drive.syllabus}
+        </p>
+        <p className="text-gray-700">
+          <span className="font-semibold">Drive Date:</span> {new Date(drive.date).toLocaleDateString()}
+        </p>
+        <p className="text-gray-700">
+          <span className="font-semibold">Description: </span> {drive.description}
+        </p>
+        {role === 'admin' && (
+          <button
+            className="bg-red-600 text-white p-2 rounded-lg mt-2"
+            onClick={() => removeDrive(drive._id)}
           >
-            <a target="__blank" href={drive.companysite}>
-              <h1 className="text-2xl font-semibold text-[#00c7ff] mb-4">
-                {drive.companyname}
-              </h1>
-            </a>
-            <p className="text-gray-700 mb-2">
-              <span className="font-semibold">Eligibility Criteria:</span>{" "}
-              {drive.eligibulity}
-            </p>
-            <p className="text-gray-700 mb-2">
-              <span className="font-semibold">Syllabus:</span> {drive.syllabus}
-            </p>
-            <p className="text-gray-700">
-              <span className="font-semibold">Drive Date:</span>{" "}
-              {new Date(drive.date).toLocaleDateString()}
-            </p>
-            {role === 'admin' ?   <button
-              className="bg-red-600 text-white p-2 rounded-lg mt-2"
-              onClick={() => removeDrive(drive._id)}
-            >
-              Remove
-            </button> : null}
-           
-          </div>
-        ))}
+            Remove
+          </button>
+        )}
       </div>
+    ))
+  ) : (
+    <div className="w-full text-center text-xl font-semibold text-gray-500 mt-10">
+      No placements for now...
+    </div>
+  )}
+</div>
+
+
     </main>
   );
 }
