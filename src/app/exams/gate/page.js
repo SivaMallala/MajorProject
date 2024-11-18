@@ -168,7 +168,7 @@ function Gate() {
                                 <TableCell><a href={subject.link} target="_blank" rel="noopener noreferrer">{subject.name}</a></TableCell>
                                 <TableCell><a href={subject.link} target="_blank" rel="noopener noreferrer">{subject.code}</a></TableCell>
                                 <TableCell><a href={subject.yt} target="_blank" rel="noopener noreferrer"><FaYoutube size={25}/></a></TableCell>
-                                <TableCell><a href="https://drive.google.com/drive/folders/1ts8SpCKculCTiGrDXtmObY0J5FJ7MaLH" target="_blank" rel="noopener noreferrer">  <FaLink size={15}/></a></TableCell>
+                                <TableCell><a href="https://gate2025.iitr.ac.in/download.html" target="_blank" rel="noopener noreferrer">  <FaLink size={15}/></a></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
